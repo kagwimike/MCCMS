@@ -1,0 +1,49 @@
+/* Review Styles - SaaS Alignment */
+.status-approved { color: var(--color-success); font-weight: 700; }
+.status-rejected { color: var(--color-error); font-weight: 700; }
+.status-pending { color: var(--color-text-muted); }
+
+.comment-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-3);
+    border-left: 3px solid var(--color-primary);
+}
+
+.comment-meta {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-bottom: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.review-form {
+    margin-top: var(--space-4);
+}
+
+.decision-buttons {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.btn-approve {
+    background: var(--color-success);
+    color: #fff;
+    border: none;
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-reject {
+    background: var(--color-error);
+    color: #fff;
+    border: none;
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+}

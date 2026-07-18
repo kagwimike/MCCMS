@@ -1,0 +1,236 @@
+/* Standardized Enterprise Landing Page - Consistent with Premium SaaS Design System */
+
+:root {
+    --color-enterprise-blue: #818cf8; /* Indigo from Dashboard */
+    --color-enterprise-purple: #c084fc;
+    --grad-enterprise: linear-gradient(135deg, var(--color-enterprise-blue), var(--color-enterprise-purple));
+    --glass-navbar: rgba(15, 23, 42, 0.9);
+}
+
+/* Base resets for visibility */
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+}
+
+/* Visibility Guard: Ensure text stands out against gradients */
+.text-muted { color: var(--color-text-muted) !important; }
+
+/* --- Mobile Base Styles (Default) --- */
+
+.top-bar {
+    display: none; /* Hide top bar on mobile to save space */
+}
+
+.nav-enterprise {
+    background: var(--glass-navbar);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: var(--space-3) var(--space-4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: none; /* Hide links on mobile */
+}
+
+.auth-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.hero-enterprise {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6) var(--space-4);
+    text-align: center;
+}
+
+.hero-text-side {
+    padding: var(--space-6) 0;
+}
+
+.hero-img-side {
+    height: 300px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.2)),
+                url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop') center/cover no-repeat;
+    margin-top: var(--space-4);
+}
+
+.hero-badge {
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: var(--space-4);
+}
+
+.overlap-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+}
+
+.feature-mini-card {
+    background: var(--color-surface);
+    backdrop-filter: blur(20px);
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-base);
+}
+
+.brand-row {
+    padding: var(--space-6) var(--space-4);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.brand-item img { height: 20px; filter: brightness(1.2); }
+.brand-item span { font-size: 12px; color: #fff; font-weight: 600; }
+
+.about-enterprise {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-6);
+}
+
+.about-img { padding: 0; }
+.about-img img { width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+
+.about-bullets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin: var(--space-4) 0;
+}
+
+.bullet-item { font-size: 14px; color: var(--color-text-primary); }
+
+.services-section { padding: var(--space-8) var(--space-4); text-align: center; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.service-box {
+    background: var(--color-surface);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: var(--transition-base);
+}
+
+/* Hover Restored & Visibility Hardened */
+.service-box:hover {
+    background: var(--grad-enterprise);
+    border-color: transparent;
+    transform: translateY(-5px);
+}
+
+.service-box h3, .service-box p {
+    transition: color var(--transition-fast);
+}
+
+.service-box:hover h3,
+.service-box:hover p {
+    color: #ffffff !important;
+}
+
+/* --- Desktop Enhancements (Progressive) --- */
+
+@media (min-width: 1024px) {
+    .top-bar { display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.4); border-bottom: 1px solid var(--color-border); padding: var(--space-2) var(--space-8); font-size: 11px; color: var(--color-text-muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+    .nav-enterprise { padding: var(--space-4) var(--space-8); }
+
+    /* Center nav links on desktop */
+    .nav-links {
+        display: flex;
+        gap: var(--space-8);
+        font-weight: 500;
+        font-size: 14px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-links a { color: var(--color-text-muted); text-decoration: none; transition: var(--transition-fast); }
+    .nav-links a:hover { color: var(--color-text-primary); }
+
+    .hero-enterprise {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 var(--space-8);
+        text-align: left;
+    }
+
+    .hero-img-side {
+        height: 100%;
+        margin-top: 0;
+        clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+        border-radius: 0;
+        border-left: 1px solid var(--color-border);
+    }
+
+    .overlap-cards {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: -80px;
+        padding: 0 var(--space-8);
+    }
+
+    .brand-row { padding: var(--space-8) 0; gap: var(--space-8); }
+
+    .about-enterprise {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: var(--space-8) var(--space-8);
+    }
+
+    .about-bullets { grid-template-columns: 1fr 1fr; }
+
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+    }
+}
+
+.footer {
+    padding: var(--space-8);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text-muted);
+}

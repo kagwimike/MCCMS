@@ -1,0 +1,129 @@
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Sidebar */
+.sidebar-refined {
+    width: 280px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--color-border);
+    padding: var(--space-8) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-logo {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-8);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-1);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-primary);
+}
+
+.nav-link.active {
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    box-shadow: inset 0 0 0 1px rgba(129, 140, 248, 0.2);
+}
+
+/* Hero Stats Section */
+.main-refined {
+    flex: 1;
+    padding: var(--space-8);
+}
+
+.dashboard-header h1 {
+    font-size: var(--text-3xl);
+    letter-spacing: -0.05em;
+    margin-bottom: var(--space-1);
+}
+
+.kpi-grid-refined {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+}
+
+.kpi-card-refined {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-6);
+}
+
+.kpi-card-refined::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100px;
+    height: 100px;
+    background: var(--color-primary);
+    opacity: 0.05;
+    filter: blur(40px);
+}
+
+/* Modern Data Table */
+.table-container {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+}
+
+.table-refined {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-refined th {
+    padding: var(--space-4) var(--space-6);
+    text-align: left;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-refined td {
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-refined tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-creator { background: rgba(52, 211, 153, 0.1); color: #34d399; }

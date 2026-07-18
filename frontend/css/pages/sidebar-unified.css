@@ -1,0 +1,21 @@
+/* Unified Sidebar Layout Component - Use across all dashboard sub-pages */
+
+.dashboard-premium-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+@media (min-width: 1024px) {
+    .dashboard-premium-layout { flex-direction: row; }
+    .sidebar-premium { position: fixed; left: 0; display: flex; width: 280px; height: 100vh; }
+    .content-premium { margin-left: 280px; flex: 1; padding: var(--space-8); }
+}
+
+/* Ensure consistent icon styling */
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: var(--space-3);
+    stroke-width: 2;
+}

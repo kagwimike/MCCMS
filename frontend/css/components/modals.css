@@ -1,0 +1,104 @@
+/* High-Fidelity SaaS Modals */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none; /* Controlled by JS */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: var(--space-4);
+}
+
+.modal-container {
+    width: 100%;
+    max-width: 520px;
+    background: var(--color-surface-solid);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+    padding: var(--space-6) var(--space-6) var(--space-4);
+    border-bottom: 1px solid var(--dash-border);
+}
+
+.modal-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.modal-body {
+    padding: var(--space-6);
+}
+
+.modal-footer {
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--dash-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+/* Refined Form Controls */
+.form-group-premium {
+    margin-bottom: var(--space-5);
+}
+
+.label-premium {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+}
+
+.input-premium {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    color: #fff;
+    font-size: 14px;
+    transition: var(--transition-fast);
+}
+
+.input-premium:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.textarea-premium {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Secondary Button for Modals */
+.btn-secondary {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--dash-border);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}

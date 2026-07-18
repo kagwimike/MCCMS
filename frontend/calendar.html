@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar | MCCMS</title>
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/pages/dashboard-premium.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <style>
+        .fc { color: #fff; background: var(--dash-card-bg); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--dash-border); }
+        .fc-toolbar-title { font-weight: 800; letter-spacing: -0.04em; }
+        .fc-daygrid-day:hover { background: rgba(255,255,255,0.02); }
+    </style>
+</head>
+<body class="dashboard-premium-layout">
+    <!-- Standard Header & Sidebar (Truncated for brevity, normally imported) -->
+    <header class="mobile-header">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="logo-premium">MCCMS</div>
+        <div></div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar-premium" id="sidebar">
+        <div class="logo-premium">MCCMS</div>
+        <div class="sidebar-nav-container">
+            <div class="nav-group">
+                <div class="sidebar-section-label">Overview</div>
+                <a href="dashboard.html" class="nav-item-premium">Dashboard</a>
+                <a href="notifications.html" class="nav-item-premium">Notifications</a>
+                <a href="calendar.html" class="nav-item-premium active">Calendar</a>
+            </div>
+            <!-- More groups... -->
+        </div>
+    </aside>
+
+    <main class="content-premium">
+        <header class="header-premium">
+            <h1>Publishing Calendar</h1>
+            <p class="text-muted text-sm">Visualize your upcoming post days across all channels.</p>
+        </header>
+
+        <div id="calendar"></div>
+    </main>
+
+    <script type="module">
+        import { projectApi } from './js/modules/project-api.js';
+        import { deliverableApi } from './js/modules/deliverable-api.js';
+
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            themeSystem: 'standard',
+            events: async (info, success, failure) => {
+                try {
+                    const projects = await projectApi.getProjects();
+                    let events = [];
+                    for(const p of projects) {
+                        const delivs = await deliverableApi.getForProject(p.id);
+                        delivs.forEach(d => {
+                            if(d.scheduledAt) {
+                                events.push({
+                                    title: `${d.platformName}: ${p.title}`,
+                                    start: d.scheduledAt,
+                                    color: d.platformName === 'YouTube' ? '#ef4444' : '#818cf8',
+                                    url: `project-detail.html?id=${p.id}`
+                                });
+                            }
+                        });
+                    }
+                    success(events);
+                } catch(e) { failure(e); }
+            }
+        });
+        calendar.render();
+    </script>
+</body>
+</html>

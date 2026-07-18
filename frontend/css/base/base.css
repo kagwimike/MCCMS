@@ -1,0 +1,4 @@
+@import url('tokens.css');
+
+/* Base structure to replace the old basic base.css */
+/* We keep this file as the main entry point to avoid breaking HTML links */

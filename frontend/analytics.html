@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | MoonRow Studio</title>
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/pages/dashboard-premium.css">
+    <link rel="stylesheet" href="css/pages/analytics-premium.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="analytics-premium-layout">
+    <!-- MoonRow Header -->
+    <header class="moon-header">
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <div class="logo-cc" style="background: #fff; color: #000;">MR</div>
+            <nav class="moon-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="notifications.html">Notifications</a>
+                <a href="analytics.html" class="active">Performance</a>
+                <a href="calendar.html">Reports</a>
+            </nav>
+        </div>
+        <div class="moon-profile">
+            <div style="text-align: right;">
+                <div style="font-size: 12px; font-weight: 700;" id="userName">User Name</div>
+                <div style="font-size: 10px; color: var(--color-text-muted);">mike@moonrow.com</div>
+            </div>
+            <div class="profile-img"></div>
+        </div>
+    </header>
+
+    <main class="moon-container">
+        <!-- Left Side -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+            <div class="card-moon gauge-section">
+                <div class="card-title-moon">Production Increase</div>
+                <div style="height: 180px; position: relative; display: flex; align-items: center; justify-content: center;">
+                    <canvas id="gaugeIncrease"></canvas>
+                    <div style="position: absolute; top: 60%; transform: translateY(-50%);">
+                        <div class="gauge-value" id="gaugeValue">0</div>
+                        <div class="card-subtext">Total Assets</div>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 1rem;" id="platformSmallStats">
+                    <!-- Platform stats added via JS or refined CSS -->
+                </div>
+            </div>
+
+            <div class="card-moon">
+                <div class="card-title-moon">Pipeline Health</div>
+                <table class="moon-table">
+                    <thead>
+                        <tr><th>Status</th><th>%</th><th>Count</th></tr>
+                    </thead>
+                    <tbody>
+                        <!-- Real status data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="card-moon">
+            <div class="card-title-moon">Production Breakdown</div>
+            <div class="breakdown-header">
+                <div>
+                    <div class="breakdown-total" id="totalAssets">0</div>
+                    <div class="card-subtext">Total Processed Items</div>
+                </div>
+                <div class="moon-nav" style="background: rgba(255,255,255,0.03); padding: 4px; border-radius: 8px;">
+                    <a href="#" class="active" style="padding: 4px 12px;">Active Track</a>
+                </div>
+            </div>
+
+            <div class="breakdown-grid">
+                <div class="bar-stack">
+                    <!-- Platform bars added via JS -->
+                </div>
+                <div style="height: 250px;">
+                    <canvas id="mainAreaChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="moon-bottom-row">
+            <div class="card-moon">
+                <div class="card-title-moon">Production Efficiency by Creator</div>
+                <table class="moon-table">
+                    <thead>
+                        <tr><th>Creator</th><th>Efficiency</th><th>Volume</th></tr>
+                    </thead>
+                    <tbody id="creatorList">
+                        <!-- Real creator data -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-moon">
+                <div class="card-title-moon">System Efficiency Score</div>
+                <div style="font-size: 3rem; font-weight: 800; color: var(--moon-accent); margin-bottom: 0.5rem;" id="efficiencyScore">0%</div>
+                <div style="height: 150px;">
+                    <canvas id="cohortBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/pages/analytics-ui.js"></script>
+</body>
+</html>

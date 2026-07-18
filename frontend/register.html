@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | MCCMS</title>
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/pages/auth-refined.css">
+</head>
+<body class="auth-page">
+    <div class="auth-card-refined">
+        <header class="auth-header">
+            <h1>Register</h1>
+            <p>Join the elite content orchestration studio</p>
+        </header>
+
+        <div id="errorBox" class="error-box-refined"></div>
+        <div id="successBox" class="success-box-refined"></div>
+
+        <form id="registerForm" class="form-refined">
+            <div class="form-group-refined">
+                <div class="input-wrapper">
+                    <input class="input-refined" type="text" id="name" placeholder="Full Name" required>
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+            </div>
+
+            <div class="form-group-refined">
+                <div class="input-wrapper">
+                    <input class="input-refined" type="email" id="email" placeholder="Email Address" required>
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+            </div>
+
+            <div class="form-group-refined">
+                <div class="input-wrapper">
+                    <input class="input-refined" type="password" id="password" placeholder="Password" minlength="6" required>
+                    <button type="button" class="password-toggle-premium" id="togglePassword">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group-refined">
+                <select class="input-refined" id="role" required style="padding-left: 20px;">
+                    <option value="CREATOR">Role: Content Creator</option>
+                    <option value="REVIEWER">Role: Editor / Reviewer</option>
+                    <option value="ADMIN">Role: System Admin</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-auth" style="margin-top: 10px;">Register</button>
+        </form>
+
+        <footer class="auth-footer-refined">
+            Already have an account? <a href="login.html">Sign In</a>
+        </footer>
+
+        <div class="created-by">Created by mikekagwi</div>
+    </div>
+
+    <script type="module" src="js/pages/register-ui.js"></script>
+</body>
+</html>

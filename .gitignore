@@ -1,0 +1,25 @@
+# Java / Spring Boot
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/*.log
+backend/.factorypath
+backend/.project
+backend/.settings/
+backend/.classpath
+
+# Local Uploads (Crucial - do not push actual video files)
+backend/uploads/
+backend/uploads/*
+
+# Environment & Secrets
+.env
+backend/src/main/resources/application.properties
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Frontend
+frontend/node_modules/
+frontend/.DS_Store

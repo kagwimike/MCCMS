@@ -1,0 +1,97 @@
+/* Mobile-First Premium Analytics - MoonRow Structure with Indigo Styling */
+
+:root {
+    --moon-bg: #080a0f;
+    --moon-card: #11141d;
+    --moon-border: rgba(255, 255, 255, 0.05);
+    --moon-accent: #6366f1;
+}
+
+.analytics-premium-layout {
+    background-color: var(--moon-bg);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* --- Top Navigation Bar --- */
+.moon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) var(--space-8);
+    background: var(--moon-card);
+    border-bottom: 1px solid var(--moon-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.moon-nav { display: flex; gap: var(--space-6); font-size: 13px; font-weight: 500; color: var(--color-text-muted); }
+.moon-nav a { color: inherit; text-decoration: none; transition: 0.2s; }
+.moon-nav a:hover, .moon-nav a.active { color: #fff; }
+
+.moon-profile { display: flex; align-items: center; gap: 12px; }
+.profile-img { width: 32px; height: 32px; border-radius: 50%; background: var(--moon-accent); }
+
+/* --- Main Grid System --- */
+.moon-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 2.5fr; /* MoonRow left-heavy split */
+    gap: var(--space-6);
+}
+
+.card-moon {
+    background: var(--moon-card);
+    border: 1px solid var(--moon-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+
+.card-title-moon {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-5);
+}
+
+/* --- Left Column Components --- */
+.gauge-section { text-align: center; }
+.gauge-value { font-size: 2.5rem; font-weight: 800; margin: 10px 0; }
+
+.moon-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.moon-table th { text-align: left; padding: 12px 8px; color: var(--color-text-muted); border-bottom: 1px solid var(--moon-border); }
+.moon-table td { padding: 12px 8px; border-bottom: 1px solid var(--moon-border); }
+
+/* --- Right Column Components --- */
+.breakdown-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+.breakdown-total { font-size: 3rem; font-weight: 800; letter-spacing: -0.05em; }
+
+.breakdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.bar-stack { display: flex; flex-direction: column; gap: var(--space-5); }
+.bar-item { }
+.bar-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 6px; }
+.bar-bg { height: 8px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; background: var(--moon-accent); }
+
+/* --- Bottom Row --- */
+.moon-bottom-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+    gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+    .moon-container { grid-template-columns: 1fr; }
+    .moon-bottom-row { grid-template-columns: 1fr; }
+    .breakdown-grid { grid-template-columns: 1fr; }
+}

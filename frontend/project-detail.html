@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | MCCMS</title>
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/pages/dashboard-premium.css">
+    <link rel="stylesheet" href="css/pages/project-detail.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+</head>
+<body class="dashboard-premium-layout">
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="logo-premium" style="margin-bottom: 0; font-size: 1.25rem;">MCCMS</div>
+        <div style="width: 40px;"></div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar-premium" id="sidebar">
+        <div class="logo-premium">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            MCCMS
+        </div>
+
+        <div class="sidebar-nav-container">
+            <div class="nav-group">
+                <div class="sidebar-section-label">Overview</div>
+                <a href="dashboard.html" class="nav-item-premium">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Dashboard
+                </a>
+                <a href="notifications.html" class="nav-item-premium">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    Notifications
+                </a>
+            </div>
+
+            <div class="nav-group">
+                <div class="sidebar-section-label">Management</div>
+                <a href="#" class="nav-item-premium active">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Project Details
+                </a>
+                <a href="review-queue.html" class="nav-item-premium">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    Review Queue
+                </a>
+            </div>
+
+            <div class="nav-group">
+                <div class="sidebar-section-label">Insights</div>
+                <a href="analytics.html" class="nav-item-premium">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    Analytics
+                </a>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-item-premium" id="logoutBtn" style="color: var(--color-error); border: none;">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Sign out
+            </a>
+        </div>
+    </aside>
+
+    <main class="content-premium">
+        <div class="detail-container">
+            <header class="detail-header">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h1 id="projTitleDisplay">Project Title</h1>
+                        <p id="projDescDisplay" class="text-muted"></p>
+                    </div>
+                    <div id="platformConnectionArea">
+                        <!-- Dynamic connection buttons for YouTube/TikTok -->
+                    </div>
+                </div>
+            </header>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: var(--text-xl); letter-spacing: -0.04em;">Deliverables</h2>
+                <button class="btn-primary" id="addDeliverableBtn">+ Add Platform</button>
+            </div>
+
+            <div class="deliverables-grid" id="deliverablesGrid">
+                <!-- Deliverable cards loaded via JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Task List Modal -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="taskModalTitle">Production Tasks</h2>
+            </div>
+            <div class="modal-body">
+                <div id="taskList" style="margin-bottom: 1.5rem;">
+                    <!-- Tasks loaded via JS -->
+                </div>
+                <form id="taskForm" class="form-refined" style="border-top: 1px solid var(--dash-border); padding-top: 1rem;">
+                    <div class="flex gap-2">
+                        <input class="input-premium" type="text" id="newTaskTitle" placeholder="Add a specific task..." required>
+                        <button type="submit" class="btn btn-primary" style="width: auto;">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="document.getElementById('taskModal').style.display='none'">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Deliverable Modal -->
+    <div class="modal-overlay" id="deliverableModal">
+        <div class="modal-container" style="max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="modal-header">
+                <h2 class="modal-title">Configure Platform Task</h2>
+            </div>
+            <form id="deliverableForm" style="display: flex; flex-direction: column; overflow: hidden;">
+                <div class="modal-body" style="overflow-y: auto; flex: 1;">
+                    <div class="form-group-premium">
+                        <label class="label-premium">Platform</label>
+                        <select class="input-premium" id="platformSelect" required>
+                            <option value="1">YouTube (16:9, .mp4)</option>
+                            <option value="2">TikTok (9:16, max 10m)</option>
+                            <option value="3">Instagram (9:16, max 90s)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-premium">Scheduled Post Day & Time</label>
+                        <input class="input-premium" type="datetime-local" id="delivSchedule" required>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-premium">Caption / Hashtags</label>
+                        <textarea class="input-premium textarea-premium" id="delivCaption" placeholder="Write your post details here..." style="min-height: 80px;"></textarea>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-premium">Upload Media (Video)</label>
+                        <input class="input-premium" type="file" id="delivFile" accept="video/*">
+                        <div id="uploadStatus" style="font-size: 11px; margin-top: 8px; font-weight: 600; text-transform: uppercase;"></div>
+                    </div>
+
+                    <div class="form-group-premium" style="margin-bottom: 0;">
+                        <label class="label-premium">Media URL (Alternative)</label>
+                        <input class="input-premium" type="url" id="delivUrl" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="modal-footer" style="flex-shrink: 0;">
+                    <button type="button" class="btn btn-secondary" id="closeDelivModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add to Pipeline</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Deliverable Modal -->
+    <div class="modal-overlay" id="editDelivModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Task</h2>
+            </div>
+            <form id="editDelivForm">
+                <input type="hidden" id="editDelivId">
+                <div class="modal-body">
+                    <div class="form-group-premium">
+                        <label class="label-premium">Caption</label>
+                        <textarea class="input-premium textarea-premium" id="editDelivCaption"></textarea>
+                    </div>
+                    <div class="form-group-premium">
+                        <label class="label-premium">Media URL</label>
+                        <input class="input-premium" type="url" id="editDelivUrl">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('editDelivModal').style.display='none'">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/pages/project-detail-ui.js"></script>
+</body>
+</html>
