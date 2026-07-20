@@ -16,13 +16,13 @@ public class Platform {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String name;
 
-    @Column(name = "api_type")
-    private String apiType;
+    @Column(name = "api_type", length = 20)
+    private String apiType; // REAL, MOCKED
 
-    @Column(name = "aspect_ratio")
+    @Column(name = "aspect_ratio", length = 10)
     private String aspectRatio;
 
     @Column(name = "max_duration_seconds")

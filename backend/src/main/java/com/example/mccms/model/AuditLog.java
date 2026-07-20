@@ -1,18 +1,18 @@
 package com.example.mccms.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "AUDIT_LOGS")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class AuditLog {
 
     @Id
@@ -26,13 +26,15 @@ public class AuditLog {
     @Column(nullable = false)
     private String action;
 
-    @Column(length = 100)
     private String entity;
 
-    @Column(length = 50)
     private String outcome;
 
     @Column(name = "created_at", updatable = false)
-    @Builder.Default
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
 }

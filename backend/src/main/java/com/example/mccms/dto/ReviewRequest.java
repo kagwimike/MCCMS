@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class ReviewRequest {
     @NotBlank
     private String text;
-    
+
     @NotBlank
     private String decision; // APPROVED, REJECTED, NEUTRAL
 }

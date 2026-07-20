@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 public class TaskRequest {
     @NotBlank
     private String title;
+
     private String priority;
 }

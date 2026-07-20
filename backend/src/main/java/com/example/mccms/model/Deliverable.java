@@ -1,6 +1,7 @@
 package com.example.mccms.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.util.List;
 @Table(name = "DELIVERABLES")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Deliverable {
 
     @Id

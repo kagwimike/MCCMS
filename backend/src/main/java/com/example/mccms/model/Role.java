@@ -16,7 +16,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true)
     private String name;
 
     public static final String ADMIN = "ADMIN";

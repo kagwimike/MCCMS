@@ -20,21 +20,3 @@ class TikTokPublisher implements PlatformPublisher {
         return "TikTok";
     }
 }
-
-/**
- * MOCKED implementation for Instagram.
- * Out of scope for live integration this semester due to Business Account and Review requirements.
- */
-@Service
-class InstagramPublisher implements PlatformPublisher {
-    @Override
-    public String publish(Deliverable deliverable) throws Exception {
-        System.out.println("Simulating Instagram Post: " + deliverable.getCaption());
-        return "https://instagram.com/reels/MCCMS_MOCK_ID";
-    }
-
-    @Override
-    public String getPlatformName() {
-        return "Instagram";
-    }
-}

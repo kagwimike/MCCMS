@@ -1,6 +1,7 @@
 package com.example.mccms.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 @Table(name = "NOTIFICATIONS")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Notification {
 
     @Id
@@ -24,7 +26,7 @@ public class Notification {
     private Deliverable relatedDeliverable;
 
     @Column(nullable = false, length = 50)
-    private String type; // DEADLINE_RISK, REVIEW_UPDATE, SYSTEM
+    private String type;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
