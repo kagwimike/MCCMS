@@ -1,4 +1,4 @@
-/* High-Fidelity Cinematic Auth - Glassmorphism Style */
+/* High-Fidelity Cinematic Auth - Force Alignment Pass */
 
 :root {
     --auth-glass-bg: rgba(255, 255, 255, 0.08);
@@ -12,7 +12,6 @@
     align-items: center;
     justify-content: center;
     padding: var(--space-4);
-    /* Cinematic Background - Scenic Landscape */
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
                 url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat fixed;
 }
@@ -28,11 +27,19 @@
     border-radius: var(--radius-xl);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     color: #fff;
-    text-align: left;
+    /* Force Centering */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important; /* Keep inputs full width */
+    text-align: center !important;
 }
 
 .auth-header {
     margin-bottom: var(--space-8);
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Center the text blocks */
 }
 
 .auth-header h1 {
@@ -40,16 +47,26 @@
     font-weight: 800;
     letter-spacing: -0.05em;
     margin-bottom: 8px;
+    width: 100%;
+    text-align: center !important;
 }
 
 .auth-header p {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.4;
+    width: 100%;
+    text-align: center !important;
+}
+
+.form-refined {
+    width: 100%;
+    text-align: left; /* Keep form internal labels/hints left if any */
 }
 
 .form-group-refined {
     margin-bottom: var(--space-5);
+    width: 100%;
 }
 
 /* Minimalist Icon-based Inputs */
@@ -57,6 +74,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .input-icon {
@@ -73,7 +91,7 @@
     background: var(--auth-input-bg);
     border: 1px solid var(--auth-glass-border);
     border-radius: var(--radius-lg);
-    padding: 14px 44px 14px 20px; /* Space for right-side icon */
+    padding: 14px 44px 14px 20px;
     color: #fff;
     font-size: 15px;
     transition: all 0.2s ease;
@@ -93,11 +111,13 @@
 .remember-container {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the checkbox and text */
     gap: 8px;
     margin: var(--space-6) 0;
     font-size: 13px;
     cursor: pointer;
     color: rgba(255, 255, 255, 0.8);
+    width: 100%;
 }
 
 .remember-container input {
@@ -130,6 +150,7 @@
     text-align: center;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
+    width: 100%;
 }
 
 .auth-footer-refined a {
@@ -150,6 +171,7 @@
     font-style: italic;
     opacity: 0.5;
     letter-spacing: 0.05em;
+    width: 100%;
 }
 
 /* Hardened Password Toggle */
@@ -168,5 +190,5 @@
 .password-toggle-premium:hover { color: #fff; }
 
 /* Success/Error States */
-.error-box-refined { padding: 12px; background: rgba(244, 63, 94, 0.2); border: 1px solid var(--accent-rose); border-radius: 8px; color: #fff; font-size: 13px; margin-bottom: 20px; display: none; }
-.success-box-refined { padding: 12px; background: rgba(16, 185, 129, 0.2); border: 1px solid var(--accent-emerald); border-radius: 8px; color: #fff; font-size: 13px; margin-bottom: 20px; display: none; }
+.error-box-refined { padding: 12px; background: rgba(244, 63, 94, 0.2); border: 1px solid var(--accent-rose); border-radius: 8px; color: #fff; font-size: 13px; margin-bottom: 20px; display: none; text-align: center; }
+.success-box-refined { padding: 12px; background: rgba(16, 185, 129, 0.2); border: 1px solid var(--accent-emerald); border-radius: 8px; color: #fff; font-size: 13px; margin-bottom: 20px; display: none; text-align: center; }
