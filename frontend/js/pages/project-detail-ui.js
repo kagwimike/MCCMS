@@ -44,31 +44,8 @@ async function loadDetails() {
 
         const deliverables = await deliverableApi.getForProject(projectId);
         renderDeliverables(deliverables);
-        renderConnectionButtons(deliverables);
     } catch (err) {
         console.error(err);
-    }
-}
-
-async function renderConnectionButtons(deliverables) {
-    const area = document.getElementById('platformConnectionArea');
-    if (!area) return;
-
-    const hasYoutube = deliverables.some(d => d.platformName === 'YouTube');
-    if (hasYoutube) {
-        // Check if already connected via backend check (simplified for now)
-        area.innerHTML = `
-            <button class="btn-premium-sm" id="detailConnectYoutube" style="background: rgba(99, 102, 241, 0.1); color: var(--color-primary);">
-                🔌 Reconnect YouTube
-            </button>
-        `;
-        document.getElementById('detailConnectYoutube').onclick = async () => {
-            const res = await fetch('http://localhost:8080/api/auth/oauth/youtube/connect', {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-            });
-            const data = await res.json();
-            window.location.href = data.url;
-        };
     }
 }
 
